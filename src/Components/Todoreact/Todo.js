@@ -97,7 +97,7 @@ useEffect(() => {
                 <div className="eachItem" key={Index}>
                   <h3>{curElem}</h3>
                   <div className="todo-btn">
-                    <i className="far fa-edit " onClick={()=>editItem(curElem.index)}></i>
+                    {/* <i className="far fa-edit " onClick={()=>editItem(curElem.index)}></i> */}
                     <i className="fas fa-trash-alt" onClick={()=>deleteItem(Index)}></i>
                   </div>
                 </div>
