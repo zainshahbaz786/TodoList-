@@ -12,7 +12,7 @@ html {
 }
 
 .main-div {
-  min-height: 100vh;
+  min-height: 92vh;
   background: #060822;
   display: flex;
   justify-content: center;
@@ -155,8 +155,7 @@ input:focus {
   margin-left: -3.5rem;
 }
 
-/*  Please Subscribe to ThapaTechnical Youtube Channel
-/* Click Here: https://www.youtube.com/thapatechnical  */
+
 
 .eachItem:hover .fa-trash-alt {
   color: rgb(214, 47, 61);
@@ -228,3 +227,42 @@ input:focus {
   -webkit-transform: translateY(0) scale(1, 1);
   transform: translateY(0) scale(1, 1);
 }
+
+/* new footer code */
+
+.mainFooter{
+  background-color:purple;
+  color: antiquewhite;
+}
+
+
+#menu-outer {
+	height: 20px;
+	/* background: url(images/bar-bg.jpg) repeat-x; */
+}
+
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+#menu-outer ul#horizontal-list {
+  text-align: justify;
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+  color: black;
+	}
+	#menu-outer  ul#horizontal-list li {
+		display: inline;
+    text-align: justify;
+   
+    color: #c03fed;
+    float: left;
+  width: 50%;
+  text-decoration: #060822;
+	}
+
+  b #y{
+    text-decoration: double;
+  }

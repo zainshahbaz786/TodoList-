@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Footer } from "./Footer";
 import "./style.css";
 
 
@@ -114,6 +115,7 @@ useEffect(() => {
           
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
