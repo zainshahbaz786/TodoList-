@@ -3,23 +3,12 @@ import "./style.css";
 
 
 
-//getting back the local storage data
-const getLocalData=()=>{
-  const list=localStorage.getItem("Todo Data");
-  if (list){
-    return JSON.parse(list)
-  }
-  else{
-    return[];
-  }
-  
-  
-  }
+
 
 
 export const Todo = () => {
   const [inputData, setInputData] = useState("");
-  const [items, setItems] = useState([getLocalData()]);
+  const [items, setItems] = useState([]);
   const [isEditItem,setEditItem]=useState("");
 
   const addItem = () => {
@@ -31,11 +20,20 @@ export const Todo = () => {
     }
   };
 
+//getting back the local storage data
+useEffect(() => {
+  const savedTodos = localStorage.getItem("Todo Data");
+  let parsedTodos = JSON.parse(savedTodos || "[]");
+
+  if (parsedTodos.length) {
+      setItems(parsedTodos);
+  }
+}, []);
 
 //   How to Delete Item Section is here 
 const deleteItem=(index)=>{
 const updatedItems=items.filter((curElem)=>{
-    return curElem.index !== index;
+    return curElem !== items[index];
 }) ;
 setItems(updatedItems);
 }
@@ -62,7 +60,7 @@ setItems([]);
 }
 
 
-//adding local storage code
+// adding local storage code
 useEffect(() => {
  localStorage.setItem("Todo Data",JSON.stringify(items));
 }, [items])
@@ -87,7 +85,7 @@ useEffect(() => {
               onChange={(event) => setInputData(event.target.value)}
             />
 
-            <i class="fa fa-plus " onClick={addItem}></i>
+            <i className="fa fa-plus " onClick={addItem}></i>
           </div>
           <br />
           <br />
@@ -99,8 +97,8 @@ useEffect(() => {
                 <div className="eachItem" key={Index}>
                   <h3>{curElem}</h3>
                   <div className="todo-btn">
-                    <i class="far fa-edit " onClick={()=>editItem(curElem.index)}></i>
-                    <i class="fas fa-trash-alt" onClick={()=>deleteItem(curElem.index)}></i>
+                    <i className="far fa-edit " onClick={()=>editItem(curElem.index)}></i>
+                    <i className="fas fa-trash-alt" onClick={()=>deleteItem(Index)}></i>
                   </div>
                 </div>
               );
@@ -113,6 +111,7 @@ useEffect(() => {
             {/* here removing alll */}
             <span> Check List </span>
           </button>
+          
         </div>
       </div>
     </>
